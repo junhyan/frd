@@ -1,0 +1,6 @@
+<Panel frdid="main">
+    <CustomButton frdid="btn1" class="cus-button">button1</CustomButton>
+    <Button frdid="btn2">button2</Button>
+    <MyWidget frdid="myWidget"></MyWidget>
+    
+</Panel>

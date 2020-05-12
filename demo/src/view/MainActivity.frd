@@ -1,0 +1,33 @@
+import Activity from '../../../src/Activity.js';
+import Panel from '../../../src/Panel.js';
+import Button from '../../../src/Button.js';
+import CustomButton from './Widgets/CustomButton.frd';
+import MyWidget from './Widgets/MyWidget.frd';
+import MainPresenter from '../presenter/MainPresenter.frd';
+
+
+export default class MainActivity extends Activity{
+    constructor() {
+        super(layout);
+    }
+    createView() {
+        this.panel = this.bindWidget(Panel, this.getView('main'));
+        this.button1 = this.bindWidget(CustomButton, this.getView('btn1'));
+        this.button2 = this.bindWidget(Button, this.getView('btn2'));
+        this.myWidget = this.bindWidget(MyWidget, this.getView('myWidget'));
+       
+
+    }
+    bindEvents() {
+        this.button2.onclick =  () =>{
+           new MainPresenter(this).setButtonText();
+        };
+    }
+    setButtonText(text) {
+        this.button1.setText(text)
+    }
+    setMyWidget(text) {
+        this.myWidget.setText(text);
+    }
+   
+}

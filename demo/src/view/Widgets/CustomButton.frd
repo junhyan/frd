@@ -1,0 +1,13 @@
+import Button from '../../../../src/Button.js';
+import MainPresenter from '../../presenter/MainPresenter.frd'
+
+class CustomButton extends Button{
+   
+    setText(text) {
+        this.main.innerHTML = text;
+    }
+    onclick() {
+        new MainPresenter(this.activity).getInfo();
+    }
+}
+export default CustomButton;

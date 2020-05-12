@@ -1,0 +1,21 @@
+import MainModel from '../model/MainModel.frd';
+class MainPresenter {
+    constructor(activity) {
+        this.activity = activity;
+    }
+    getInfo() {
+        new MainModel().getInfo().then((info) => {
+            if (info) {
+                this.activity.setMyWidget(info.name);
+            }
+        });
+    }
+    setButtonText() {
+        new MainModel().getInfo().then((info) => {
+            if (info) {
+                this.activity.setButtonText(info.name);
+            }
+        });
+    }
+}
+export default MainPresenter;

@@ -1,0 +1,4 @@
+<div>
+    <div>mywidget</div>
+    <CustomButton frdid="btn1" class="cus-button">cusbutton1</CustomButton>
+</div>

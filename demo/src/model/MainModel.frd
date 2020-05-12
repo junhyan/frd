@@ -1,0 +1,8 @@
+import HttpClient from "../../../src/HttpClient";
+
+class MainModel {
+    getInfo() {
+        return new HttpClient().testGet({name: 'testData'});
+    }
+}
+export default MainModel;

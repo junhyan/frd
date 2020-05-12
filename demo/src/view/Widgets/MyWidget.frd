@@ -1,0 +1,20 @@
+import Widget from '../../../../src/Widget.js';
+import CustomButton from './CustomButton.frd';
+
+class MyWidget extends Widget{
+    constructor(activity, main) {
+        super(activity, main, layout)
+    }
+    createView() {
+        this.button1 = this.bindWidget(CustomButton, this.getView('btn1'));
+       
+    }
+
+    setText(text) {
+        this.button1.setText(text);
+    }
+    // onclick() {
+    //     new MainPresenter(this.activity).getInfo();
+    // }
+}
+export default MyWidget;

@@ -1,0 +1,9 @@
+html {
+    background: #FFFFFF;
+}
+.cus-button {
+    display: block;
+    height: 40px;
+    width: 200px;
+    background: #CCCCCC;
+}
