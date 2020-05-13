@@ -63,10 +63,37 @@
 // }
 const fs = require("fs");
 const path = require('path');
+function findFile(targetPath, name) {
+    var tmplpath;
+    function scanDir(startPath,filter){
+
+        //console.log('Starting from dir '+startPath+'/');
+    
+        if (!fs.existsSync(startPath)){
+            console.log("no dir ",startPath);
+            return;
+        }
+    
+        var files=fs.readdirSync(startPath);
+        for(var i=0;i<files.length;i++){
+            var filename=path.join(startPath,files[i]);
+            var stat = fs.lstatSync(filename);
+            if (stat.isDirectory()){
+                scanDir(filename,filter); //recurse
+            }
+            else if (filename.indexOf(filter) !== -1) {
+                tmplpath = filename;
+            };
+        };
+    };
+    
+    scanDir(targetPath, name);
+    return tmplpath;
+}
 module.exports = function(source) {
     // this.resourcePath
    
-    var callback = this.async();
+    // var callback = this.async();
     // var viewPath = path.resolve(`./layout/view/${name}.html`);
 
     // // this.addDependency(headerPath);
@@ -88,14 +115,24 @@ module.exports = function(source) {
         for (var i = 0; i < paths.length - 1; i++) {
             deep += '../'
         }
-        fs.exists(`./layout/view/${name}.fml`, function  (exist) {
-            if (exist) {
-                callback(null, `import layout from '${deep}layout/view/${name}.fml';require('${deep}layout/style/${name}.css');` + source);
-            } else {
-                callback(null, source);
+        // console.log(findPath(name), '===================');
+        var tmplFile = findFile('./layout/view/', name);
+        var styleFile = findFile('./layout/style/', name);
+        // console.log(tmplFile, styleFile, "-=-=-=-=--=");
+        if (tmplFile && styleFile) {
+            return `import layout from '${deep}${tmplFile}';require('${deep}${styleFile}');${source}`;
+        } else {
+            return source;
+        }
 
-            }
-        });
+        // fs.exists(`./layout/view/${name}.fml`, function  (exist) {
+        //     if (exist) {
+        //         callback(null, `import layout from '${deep}layout/view/${name}.fml';require('${deep}layout/style/${name}.css');` + source);
+        //     } else {
+        //         callback(null, source);
+
+        //     }
+        // });
         
 
     } else {
