@@ -8,7 +8,7 @@ class Button extends Widget{
         this.dom.innerHTML = text;
     }
     $click() {
-        console.log('click');
+        
     }
 }
 export default Button;

@@ -8,10 +8,10 @@ export default class MainActivity extends Activity{
         super(layout);
     }
     createView() {
-        // this.panel = this.bindWidget(Panel, this.getView('main'));
-        // this.button1 = this.bindWidget(CustomButton, this.getView('btn1'));
-        // this.button2 = this.bindWidget(Button, this.getView('btn2'));
-        // this.myWidget = this.bindWidget(MyWidget, this.getView('myWidget'));
+        // this.panel = this.bindWidget(Panel, this.getMain('main'));
+        // this.button1 = this.bindWidget(CustomButton, this.getMain('btn1'));
+        // this.button2 = this.bindWidget(Button, this.getMain('btn2'));
+        // this.myWidget = this.bindWidget(MyWidget, this.getMain('myWidget'));
        
 
     }

@@ -51,7 +51,7 @@ class Widget {
 
        
     }
-    getView(frdid) {
+    getMain(frdid) {
         return this.widgetsView[frdid];
     }
     alterStatus(status) {
@@ -62,8 +62,60 @@ class Widget {
             util.removeClass(this.main, this.primaryClass + '-' + status.slice(1));
         }
     }
-    bindWidget(SubWidget, main) {
-        return new SubWidget(this, main);
+    bindWidget(SubWidget, main, valueKey) {
+        var widget = new SubWidget(this, main);
+        widget.valueKey = valueKey;
+        return widget;
     }
+    $keydown() {
+
+    }
+
+   
+    $keypress() {
+
+    }
+
+   
+    $keyup() {
+        
+    }
+
+   
+    $mousedown() {
+        
+    }
+
+    
+    $mousemove() {
+        
+    }
+
+    
+    $mouseout() {
+        
+    }
+
+   
+    $mouseover() {
+        
+    }
+   
+    $mouseup() {
+        
+    }
+    $mousewheel() {
+
+    }
+    $ready() {
+       
+    }
+    disable() {
+
+    }
+    enable() {
+
+    }
+
 }
 export default Widget;

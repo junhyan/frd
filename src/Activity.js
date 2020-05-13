@@ -83,11 +83,19 @@ class Activity {
         }
         
     }
-    getView(frdid) {
+    getMain(frdid) {
         return this.activityWidget.widgetsView[frdid];
     }
-    bindWidget(Widget, main) {
-        return new Widget(this.activityWidget, main);
+    bindWidget(Widget, main, valueKey) {
+        var widget = new Widget(this.activityWidget, main);
+        widget.valueKey = valueKey;
+        return widget;
+    }
+    initData(data) {
+
+    }
+    setValue() {
+        
     }
     render(view, init) {
         if (init) {

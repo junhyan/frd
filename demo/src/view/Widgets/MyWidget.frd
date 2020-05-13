@@ -6,7 +6,7 @@ class MyWidget extends Widget{
         super(activity, main, layout)
     }
     createView() {
-        this.button1 = this.bindWidget(CustomButton, this.getView('btn1'));
+        this.button1 = this.bindWidget(CustomButton, this.getMain('btn1'));
        
     }
 
