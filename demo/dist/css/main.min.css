@@ -6,4 +6,6 @@ html {
     height: 40px;
     width: 200px;
     background: #CCCCCC;
+}div {
+    background: blue;
 }

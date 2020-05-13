@@ -77,7 +77,7 @@ class Activity {
         if (this.createView) {
             this.createView();
         }
-        this.render(this.view);
+        this.render(this.view, true);
         if (this.bindEvents) {
             this.bindEvents();
         }
@@ -89,8 +89,20 @@ class Activity {
     bindWidget(Widget, main) {
         return new Widget(this.activityWidget, main);
     }
-    render(view) {
-        document.body.appendChild(this.activityWidget.main); 
+    render(view, init) {
+        if (init) {
+            document.body.appendChild(this.activityWidget.main); 
+        }
+    }
+    cached() {
+        console.log();
+        // if (this.createView) {
+        //     this.createView();
+        // }
+        // this.render(this.view, true);
+        // if (this.bindEvents) {
+        //     this.bindEvents();
+        // }
     }
     dispose() {
 

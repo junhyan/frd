@@ -4,7 +4,7 @@ import Button from '../../../src/Button.js';
 import CustomButton from './Widgets/CustomButton.frd';
 import MyWidget from './Widgets/MyWidget.frd';
 import MainPresenter from '../presenter/MainPresenter.frd';
-
+import router from '../../router';
 
 export default class MainActivity extends Activity{
     constructor() {
@@ -15,12 +15,11 @@ export default class MainActivity extends Activity{
         this.button1 = this.bindWidget(CustomButton, this.getView('btn1'));
         this.button2 = this.bindWidget(Button, this.getView('btn2'));
         this.myWidget = this.bindWidget(MyWidget, this.getView('myWidget'));
-       
-
     }
     bindEvents() {
         this.button2.onclick =  () =>{
-           new MainPresenter(this).setButtonText();
+        //    new MainPresenter(this).setButtonText();
+            router.go('/detail');
         };
     }
     setButtonText(text) {

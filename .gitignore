@@ -1,12 +1,1 @@
-.DS_Store
-test.html
-update.html
-ecui-*
-*.css.html
-*.layers.*
-index/
-doc/
-release/
-*.test.*
-*test/*
 demo/node_modules
